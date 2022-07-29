@@ -29,5 +29,6 @@ public class Achievement {
     private String achievementName;
     @NotBlank
     private String achievementDetails;
-    
+    @NotBlank
+    private String achievementImg;
 }
