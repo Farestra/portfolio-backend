@@ -37,7 +37,7 @@ public class SkillController {
     private PersonRepository personRepository;
     
     //obtenemos todas las habilidades para una id de persona mediante el método GET
-    @GetMapping("/person/{personId}/skills")
+    @GetMapping("/person/{personId}/skill")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<Skill>> getAllSkillsByPersonId(@PathVariable(value = "personId") Long personId) {    
         //obtenemos el objeto persona por la id

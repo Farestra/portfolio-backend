@@ -36,7 +36,7 @@ public class SchoolController {
     private PersonRepository personRepository;
     
     //obtenemos todas las escuelas para una id de persona mediante el método GET
-    @GetMapping("/person/{personId}/schools")
+    @GetMapping("/person/{personId}/school")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<School>> getAllSchoolsByPersonId(@PathVariable(value = "personId") Long personId) {    
         //obtenemos el objeto persona por la id

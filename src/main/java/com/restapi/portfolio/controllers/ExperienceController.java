@@ -53,7 +53,7 @@ public class ExperienceController {
     //obtenemos una experiencia por su id mediante el método GET
     @GetMapping("/experience/{id}")
     @PreAuthorize("hasRole('ROLE_USER')  or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Experience> getShoolsById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Experience> getExperienceById(@PathVariable(value = "id") Long id) {
       Experience experience = experienceRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("No hay escuela con el id = " + id));
       return new ResponseEntity<>(experience, HttpStatus.OK);
@@ -62,7 +62,7 @@ public class ExperienceController {
     //crear una experiencia nueva mediante el método POST
     @PostMapping("/person/{personId}/experience")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Experience> createSkill(@PathVariable(value = "personId") Long personId,
+    public ResponseEntity<Experience> createExperience(@PathVariable(value = "personId") Long personId,
         @RequestBody Experience experienceRequest) {
       Experience experience = personRepository.findById(personId).map(person -> {
         person.getExperiences().add(experienceRequest);
@@ -74,7 +74,7 @@ public class ExperienceController {
     //actualizar experiencia mediante el método PUT
     @PutMapping("/experience/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Experience> updateSchool(@PathVariable("id") Long id, @RequestBody Experience experienceRequest) {
+    public ResponseEntity<Experience> updateExperience(@PathVariable("id") Long id, @RequestBody Experience experienceRequest) {
       Experience experience = experienceRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Escuela con id " + id + "no encontrada"));
       //actualizamos la compañia en la experiencia
@@ -99,7 +99,7 @@ public class ExperienceController {
     //eliminar una experiencia por su id mediante el método DELETE
     @DeleteMapping("/experience/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<HttpStatus> deleteSchool(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> deleteExperience(@PathVariable("id") Long id) {
       experienceRepository.deleteById(id);
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
