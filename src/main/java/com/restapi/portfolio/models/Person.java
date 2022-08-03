@@ -47,15 +47,12 @@ public class Person {
     private String backImg;
     //url de la imagen de perfil
     @NotBlank
-    private String profileimg;
+    private String profileImg;
     //email
     @NotNull
     @NotBlank
     @Email
     private String email;
-    //password
-    @NotBlank
-    private String password;
     //dirección o ubicación
     @NotBlank
     private String location;
@@ -98,12 +95,11 @@ public class Person {
     public Person() {
     }
 
-    public Person(String name, String backImg, String profileimg, String email, String password, String location, String about) {
+    public Person(String name, String backImg, String profileImg, String email, String location, String about) {
         this.name = name;
         this.backImg = backImg;
-        this.profileimg = profileimg;
+        this.profileImg = profileImg;
         this.email = email;
-        this.password = password;
         this.location = location;
         this.about = about;
     }

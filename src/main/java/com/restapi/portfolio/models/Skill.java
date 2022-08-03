@@ -26,8 +26,8 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
-    private String skillName;
-    private String skillImg;
+    private String name;
+    private String image;
     @NotNull
     private int progress;
 

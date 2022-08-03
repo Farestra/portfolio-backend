@@ -78,11 +78,11 @@ public class SchoolController {
       School school = schoolRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Escuela con id " + id + "no encontrada"));
       //actualizamos la url para la imagen de la institución
-      school.setSchoolImg(schoolRequest.getSchoolImg());
+      school.setImage(schoolRequest.getImage());
       //actualizamos el nombre de la entidad
-      school.setSchoolName(schoolRequest.getSchoolName());
+      school.setName(schoolRequest.getName());
       //actializamos la url para la entidad
-      school.setSchoolUrl(schoolRequest.getSchoolUrl());
+      school.setUrl(schoolRequest.getUrl());
       //guardamos actualizado
       return new ResponseEntity<>(schoolRepository.save(school), HttpStatus.OK);
     }

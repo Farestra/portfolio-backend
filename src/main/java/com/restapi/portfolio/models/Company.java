@@ -27,11 +27,11 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
-    private String companyName;
+    private String name;
     @NotBlank
-    private String companyImg;
+    private String image;
     @NotBlank
-    private String companyUrl;
+    private String url;
 
 
 }

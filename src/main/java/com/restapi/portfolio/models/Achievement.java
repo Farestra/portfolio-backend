@@ -26,9 +26,11 @@ public class Achievement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
-    private String achievementName;
+    private String name;
     @NotBlank
-    private String achievementDetails;
+    private String details;
     @NotBlank
-    private String achievementImg;
+    private String image;
+    @NotBlank
+    private String url;
 }

@@ -79,8 +79,11 @@ public class AchievementController {
     public ResponseEntity<Achievement> updateEducation(@PathVariable("id") Long id, @RequestBody Achievement achievementRequest) {
       Achievement achievement = achievementRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Logro con id " + id + "no encontrado"));
-      achievement.setAchievementName(achievementRequest.getAchievementName());
-      achievement.setAchievementDetails(achievementRequest.getAchievementDetails());
+      achievement.setName(achievementRequest.getName());
+      achievement.setDetails(achievementRequest.getDetails());
+      achievement.setImage(achievementRequest.getImage());
+      achievement.setUrl(achievementRequest.getUrl());
+
       
       
       //guardamos actualizado

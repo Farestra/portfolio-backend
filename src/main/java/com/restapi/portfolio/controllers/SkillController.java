@@ -81,9 +81,9 @@ public class SkillController {
       //actualizamos el progreso
       skill.setProgress(skillRequest.getProgress());
       //actualizamos la url de la imagen
-      skill.setSkillImg(skillRequest.getSkillImg());
+      skill.setImage(skillRequest.getImage());
       //actializamos el nombre de la habilidad
-      skill.setSkillName(skillRequest.getSkillName());
+      skill.setName(skillRequest.getName());
       return new ResponseEntity<>(skillRepository.save(skill), HttpStatus.OK);
     }
     

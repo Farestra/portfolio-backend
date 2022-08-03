@@ -29,15 +29,15 @@ public class Education {
     @NotBlank
     private String title;
     @NotBlank
-    private String educationImg;
+    private String image;
     @NotBlank
     private String career;
     @NotNull
     private int score;
     @NotBlank
-    private String educationStart;
+    private String startDate;
     @NotBlank
-    private String educationEnd;
+    private String endDate;
     
 
 }

@@ -82,15 +82,19 @@ public class ExperienceController {
       //actualizamos la posición en la experiencia
       experience.setPosition(experienceRequest.getPosition());
       //actualizamos la imagen en la experiencia
-      experience.setExperienceImg(experienceRequest.getExperienceImg());
+      experience.setImage(experienceRequest.getImage());
       //actualizamos la fecha de inicio
-      experience.setExperienceStart(experienceRequest.getExperienceStart());
+      experience.setStartDate(experienceRequest.getStartDate());
       //actualizamos la fecha de finalizacipon
-      experience.setExperienceEnd(experienceRequest.getExperienceEnd());
+      experience.setEndDate(experienceRequest.getEndDate());
       //actualizamos el modo de la experiencia
-      experience.setExperienceMode(experienceRequest.getExperienceMode());
+      experience.setJobMode(experienceRequest.getJobMode());
       //actualizamos la duración de la experiencia
       experience.setTimeElapsed(experienceRequest.getTimeElapsed());
+      //actualizamos URL
+      experience.setUrl(experienceRequest.getUrl());
+      //actualizamos Detalles
+      experience.setDetails(experienceRequest.getDetails());
       
       //guardamos actualizado
       return new ResponseEntity<>(experienceRepository.save(experience), HttpStatus.OK);

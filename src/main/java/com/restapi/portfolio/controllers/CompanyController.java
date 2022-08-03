@@ -77,9 +77,9 @@ public class CompanyController {
     public ResponseEntity<Company> updateEducation(@PathVariable("id") Long id, @RequestBody Company companyRequest) {
       Company company = companyRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Logro con id " + id + "no encontrado"));
-      company.setCompanyName(companyRequest.getCompanyName());
-      company.setCompanyImg(companyRequest.getCompanyImg());
-      company.setCompanyUrl(companyRequest.getCompanyUrl());
+      company.setName(companyRequest.getName());
+      company.setImage(companyRequest.getImage());
+      company.setUrl(companyRequest.getUrl());
       //guardamos actualizado
       return new ResponseEntity<>(companyRepository.save(company), HttpStatus.OK);
     }

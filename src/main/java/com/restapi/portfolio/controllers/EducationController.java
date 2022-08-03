@@ -79,11 +79,11 @@ public class EducationController {
           .orElseThrow(() -> new ResourceNotFoundException("Educación con id " + id + "no encontrada"));
       education.setSchool(educationRequest.getSchool());
       education.setTitle(educationRequest.getTitle());
-      education.setEducationImg(educationRequest.getEducationImg());
+      education.setImage(educationRequest.getImage());
       education.setCareer(educationRequest.getCareer());
       education.setScore(educationRequest.getScore());
-      education.setEducationStart(educationRequest.getEducationStart());
-      education.setEducationEnd(educationRequest.getEducationEnd());
+      education.setStartDate(educationRequest.getStartDate());
+      education.setEndDate(educationRequest.getEndDate());
       
       //guardamos actualizado
       return new ResponseEntity<>(educationRepository.save(education), HttpStatus.OK);

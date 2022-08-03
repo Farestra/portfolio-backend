@@ -29,14 +29,18 @@ public class Experience {
     @NotBlank
     private String company;
     @NotBlank
-    private String experienceImg;
+    private String image;
     @NotBlank
-    private String experienceMode;
+    private String details;
     @NotBlank
-    private String experienceStart;
+    private String jobMode;
     @NotBlank
-    private String experienceEnd;
+    private String startDate;
+    @NotBlank
+    private String endDate;
     @NotBlank
     private String timeElapsed;
+    @NotBlank
+    private String url;
 
 }

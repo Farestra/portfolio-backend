@@ -40,15 +40,14 @@ public class PersonController {
     
     //creamos una persona nueva por el método post
     @PostMapping("/person")
-    @PreAuthorize("asRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Person> createTutorial(@RequestBody Person person) {
       Person _person = personRepository.save
         (new Person(
               person.getName(),
       person.getBackImg(),
-              person.getProfileimg(),
-              person.getEmail()
-      ,person.getPassword(), 
+              person.getProfileImg(),
+              person.getEmail(),
               person.getLocation(), 
               person.getAbout()));
       return new ResponseEntity<>(_person, HttpStatus.CREATED);
@@ -62,9 +61,8 @@ public class PersonController {
 
       _person.setName(person.getName());
       _person.setBackImg(person.getBackImg());
-      _person.setProfileimg(person.getProfileimg());
+      _person.setProfileImg(person.getProfileImg());
       _person.setEmail(person.getEmail());
-      _person.setPassword(person.getPassword());
       _person.setLocation(person.getLocation());
       _person.setAbout(person.getAbout());
 

@@ -26,11 +26,11 @@ public class School {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
-    private String schoolName;
+    private String name;
     @NotBlank
-    private String schoolImg;
+    private String image;
     @NotBlank
-    private String schoolUrl;
+    private String url;
 
 
 }
