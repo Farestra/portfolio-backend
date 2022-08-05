@@ -63,7 +63,7 @@ public class AchievementController {
     //crear un logro nuevo mediante el método POST
     @PostMapping("/person/{personId}/achievement")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Achievement> createEducation(@PathVariable(value = "personId") Long personId,
+    public ResponseEntity<Achievement> createAchievement(@PathVariable(value = "personId") Long personId,
         @RequestBody Achievement achievementRequest) {
       Achievement achievement = personRepository.findById(personId).map(person -> {
         person.getAchievements().add(achievementRequest);
@@ -76,7 +76,7 @@ public class AchievementController {
     
     @PutMapping("/achievement/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Achievement> updateEducation(@PathVariable("id") Long id, @RequestBody Achievement achievementRequest) {
+    public ResponseEntity<Achievement> updateAchievement(@PathVariable("id") Long id, @RequestBody Achievement achievementRequest) {
       Achievement achievement = achievementRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Logro con id " + id + "no encontrado"));
       achievement.setName(achievementRequest.getName());

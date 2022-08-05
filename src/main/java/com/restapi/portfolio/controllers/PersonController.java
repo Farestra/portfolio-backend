@@ -29,11 +29,11 @@ public class PersonController {
     PersonRepository personRepository;
 
     //obtenemos una persona por el email
-    @GetMapping("/person/{email}")
+    @GetMapping("/person/{id}")
     @PreAuthorize("hasRole('ROLE_USER')  or hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Person> getTutorialById(@PathVariable("email") String email) {
-      Person person = personRepository.findByEmail(email)
-              .orElseThrow(() -> new ResourceNotFoundException("no existe persona con email = " + email));
+    public ResponseEntity<Person> getPersonById(@PathVariable("id") Long id) {
+      Person person = personRepository.findById(id)
+              .orElseThrow(() -> new ResourceNotFoundException("no existe persona con el id = " + id));
 
       return new ResponseEntity<>(person, HttpStatus.OK);
     }
@@ -41,7 +41,7 @@ public class PersonController {
     //creamos una persona nueva por el método post
     @PostMapping("/person")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Person> createTutorial(@RequestBody Person person) {
+    public ResponseEntity<Person> cratePerson(@RequestBody Person person) {
       Person _person = personRepository.save
         (new Person(
               person.getName(),
@@ -55,7 +55,7 @@ public class PersonController {
 
     @PutMapping("/person/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Person> updateTutorial(@PathVariable("id") long id, @RequestBody Person person) {
+    public ResponseEntity<Person> updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
       Person _person = personRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("No hay persona con el id = " + id));
 
@@ -71,7 +71,7 @@ public class PersonController {
     
     @DeleteMapping("/person/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> deletePerson(@PathVariable("id") long id) {
       personRepository.deleteById(id);
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

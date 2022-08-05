@@ -74,7 +74,7 @@ public class CompanyController {
     //actualizar educación mediante el método PUT
     @PutMapping("/company/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<Company> updateEducation(@PathVariable("id") Long id, @RequestBody Company companyRequest) {
+    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @RequestBody Company companyRequest) {
       Company company = companyRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Logro con id " + id + "no encontrado"));
       company.setName(companyRequest.getName());
@@ -87,7 +87,7 @@ public class CompanyController {
     //eliminar una educación por su id mediante el método DELETE
     @DeleteMapping("/company/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<HttpStatus> deleteEducation(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> deleteCompany(@PathVariable("id") Long id) {
       companyRepository.deleteById(id);
       return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

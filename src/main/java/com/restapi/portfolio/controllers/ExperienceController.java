@@ -77,24 +77,25 @@ public class ExperienceController {
     public ResponseEntity<Experience> updateExperience(@PathVariable("id") Long id, @RequestBody Experience experienceRequest) {
       Experience experience = experienceRepository.findById(id)
           .orElseThrow(() -> new ResourceNotFoundException("Escuela con id " + id + "no encontrada"));
-      //actualizamos la compañia en la experiencia
-      experience.setCompany(experienceRequest.getCompany());
       //actualizamos la posición en la experiencia
       experience.setPosition(experienceRequest.getPosition());
+      //actualizamos la compañia en la experiencia
+      experience.setCompany(experienceRequest.getCompany());
       //actualizamos la imagen en la experiencia
       experience.setImage(experienceRequest.getImage());
+      //actualizamos Detalles
+      experience.setDetails(experienceRequest.getDetails());
+      //actualizamos el modo de la experiencia
+      experience.setJobMode(experienceRequest.getJobMode());
       //actualizamos la fecha de inicio
       experience.setStartDate(experienceRequest.getStartDate());
       //actualizamos la fecha de finalizacipon
       experience.setEndDate(experienceRequest.getEndDate());
-      //actualizamos el modo de la experiencia
-      experience.setJobMode(experienceRequest.getJobMode());
       //actualizamos la duración de la experiencia
       experience.setTimeElapsed(experienceRequest.getTimeElapsed());
       //actualizamos URL
       experience.setUrl(experienceRequest.getUrl());
-      //actualizamos Detalles
-      experience.setDetails(experienceRequest.getDetails());
+      
       
       //guardamos actualizado
       return new ResponseEntity<>(experienceRepository.save(experience), HttpStatus.OK);
