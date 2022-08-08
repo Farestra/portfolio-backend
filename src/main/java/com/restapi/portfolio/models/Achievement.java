@@ -30,7 +30,7 @@ public class Achievement {
     @NotBlank
     private String details;
     @NotBlank
-    private String image;
+    private String releaseDate;
     @NotBlank
     private String url;
 }

@@ -81,7 +81,7 @@ public class AchievementController {
           .orElseThrow(() -> new ResourceNotFoundException("Logro con id " + id + "no encontrado"));
       achievement.setName(achievementRequest.getName());
       achievement.setDetails(achievementRequest.getDetails());
-      achievement.setImage(achievementRequest.getImage());
+      achievement.setReleaseDate(achievementRequest.getReleaseDate());
       achievement.setUrl(achievementRequest.getUrl());
 
       
